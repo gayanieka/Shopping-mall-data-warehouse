@@ -1,0 +1,606 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{38D69FAF-62BA-4807-A262-D58506114456}" Name="Customer_Profiling.xml">
+      <DtsConnectionManagerID>Customer_Profiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{8E64B37D-AC22-4E2A-8605-F78FBF03026D}" Name="LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}" Name="LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 1">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 1</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{F03F00B0-6828-408C-8558-8BED9C05FE8B}" Name="LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 2">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 2</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{93853792-E9FF-4FDE-8781-088926B8C278}" Name="Mall_Profiling.xml">
+      <DtsConnectionManagerID>Mall_Profiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{4B0D0308-9D20-4138-8868-1D15D83D54E6}" Name="Sales_profiling.xml">
+      <DtsConnectionManagerID>Sales_profiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{37E2D279-504C-4CD0-A915-129D9C7BF1A4}" Name="Excel Connection Manager">
+      <DtsConnectionManagerID>Excel Connection Manager</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{5A850FF3-CD6B-419E-9D0A-12403BA8FF65}" Name="Excel Connection Manager 1">
+      <DtsConnectionManagerID>Excel Connection Manager 1</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{3D659A2E-8832-435A-9338-1960DC09B48D}" Name="Flat File Connection Manager">
+      <DtsConnectionManagerID>Flat File Connection Manager</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{12AF745A-6CD2-4B53-A998-E4F92BD0CFE3}" Name="LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_DW">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_DW</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{630119F9-35FE-4782-8223-EC87063C2481}" Name="LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Source">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Source</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{35469BEC-039E-4827-B8F0-A04DA05E2997}" Name="LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Staging1">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Staging1</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table Schema="dbo" Table="StgMall" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table Schema="dbo" Table="StgMall" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table Schema="dbo" Table="StgMall" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table Schema="dbo" Table="StgMall" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table Schema="dbo" Table="StgMall" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table Schema="dbo" Table="StgMall" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="shopping_mall" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="construction_year" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="area_sqm" SqlDbType="VarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="location" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="store_count" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="shopping_mall" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>9</MinLength>
+        <MaxLength>24</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="construction_year" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>4</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="area_sqm" SqlDbType="VarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>8</MinLength>
+        <MaxLength>9</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="location" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>6</MinLength>
+        <MaxLength>11</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="store_count" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>3</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <KeyColumns>
+          <Column Name="shopping_mall" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="shopping_mall" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>10</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Beverly Center</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Del Amo Fashion Center</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Fashion Valley</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Glendale Galleria</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Irvine Spectrum Center</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>South Coast Plaza</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Stanford Shopping Center</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>The Grove</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Westfield Century City</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Westfield Valley Fair</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <KeyColumns>
+          <Column Name="construction_year" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="construction_year" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>10</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>1956</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1961</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1964</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1967</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1976</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1977</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1982</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1986</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>1995</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2002</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="area_sqm" SqlDbType="VarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>"111,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"120,000"</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"133,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"145,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"161,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"220,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"232,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"250,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>"56,000"</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="location" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>8</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Costa Mesa</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Glendale</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Irvine</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Los Angeles</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Palo Alto</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>San Diego</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Santa Clara</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Torrance</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="store_count" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>130</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>140</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>160</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>180</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>190</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>200</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>220</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>230</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>270</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="shopping_mall" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>STANFORD SHOPPING CENTER</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>GLENDALE GALLERIA</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>WESTFIELD CENTURY CITY</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>IRVINE SPECTRUM CENTER</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>WESTFIELD VALLEY FAIR</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>DEL AMO FASHION CENTER</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SOUTH COAST PLAZA</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>FASHION VALLEY</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>BEVERLY CENTER</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>THE GROVE</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="construction_year" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\d\d\d\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="area_sqm" SqlDbType="VarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>"\d\d\d,000"</RegexText>
+            <Frequency>90</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>"56,000"</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="location" SqlDbType="VarChar" MaxLength="100" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>LOS ANGELES</RegexText>
+            <Frequency>30</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>TORRANCE</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>GLENDALE</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SANTA CLARA</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>COSTA MESA</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>PALO ALTO</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SAN DIEGO</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>IRVINE</RegexText>
+            <Frequency>10</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgMall" RowCount="10" />
+        <Column Name="store_count" SqlDbType="VarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\d\d0</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

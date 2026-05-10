@@ -1,0 +1,1668 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/24/2026 3:21:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-DCLU5H0G"
+  DTS:CreatorName="LAPTOP-DCLU5H0G\USER"
+  DTS:DTSID="{49D89016-574E-43D6-BE58-A0115BDF8245}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Load_Staging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{4E713F29-F8D1-43C8-A04F-CBAFE7AFEF18}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load StgCustomer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{02BAAFAC-FA87-4D31-93FA-491E0E1A627D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load StgCustomer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Load StgCustomer.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{7333CF0C-81A8-46F8-B963-C26C7AB67A14}"
+          DTS:EventID="16776176"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{2A7557E1-E998-4684-AE44-357261BAC766}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Load StgCustomer.EventHandlers[OnPreExecute]\Truncate StgCustomer"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{F12E1733-9A6D-4B4E-A46C-EB934A67355B}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate StgCustomer"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{35469BEC-039E-4827-B8F0-A04DA05E2997}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.StgCustomer;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load StgCustomer\Extract Customer Data"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Extract Customer Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">customer_data$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load StgCustomer\Extract Customer Data.Connections[OleDbConnection]"
+                  connectionManagerID="{5A850FF3-CD6B-419E-9D0A-12403BA8FF65}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel Connection Manager 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[customer_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[customer_id]"
+                      length="255"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      length="255"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[age]"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[payment_method]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[payment_method]"
+                      length="255"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[payment_method]"
+                      name="payment_method"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].ExternalColumns[payment_method]"
+                      dataType="wstr"
+                      length="255"
+                      name="payment_method" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[payment_method]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[payment_method]"
+                      name="payment_method" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load StgCustomer\Load StgCustomer Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load StgCustomer Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load StgCustomer\Load StgCustomer Table.Connections[OleDbConnection]"
+                  connectionManagerID="{35469BEC-039E-4827-B8F0-A04DA05E2997}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Staging1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[age]" />
+                    <inputColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].Columns[payment_method]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="payment_method"
+                      externalMetadataColumnId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[payment_method]"
+                      lineageId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output].Columns[payment_method]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="20"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      dataType="i4"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input].ExternalColumns[payment_method]"
+                      dataType="wstr"
+                      length="50"
+                      name="payment_method" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load StgCustomer\Load StgCustomer Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load StgCustomer\Load StgCustomer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load StgCustomer\Load StgCustomer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load StgCustomer\Load StgCustomer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load StgCustomer.Paths[Excel Source Output]"
+              endId="Package\Load StgCustomer\Load StgCustomer Table.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Load StgCustomer\Extract Customer Data.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load StgMall"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E453FDC7-59C0-4CEE-A954-33C56C30086A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load StgMall"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Load StgMall.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{38E57264-5327-4C78-8B74-28718C8CF9B2}"
+          DTS:EventID="-1349002912"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{03669F88-81A0-4672-A8FB-6C08932FBDF7}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Load StgMall.EventHandlers[OnPreExecute]\Truncate StgMall"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{791B673F-9160-41E1-BC6C-95274695EC29}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate StgMall"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{35469BEC-039E-4827-B8F0-A04DA05E2997}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.StgMall;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load StgMall\Extract Mall Data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="2057"
+              name="Extract Mall Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load StgMall\Extract Mall Data.Connections[FlatFileConnection]"
+                  connectionManagerID="{3D659A2E-8832-435A-9338-1960DC09B48D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[shopping_mall]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[shopping_mall]"
+                      length="50"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[shopping_mall]"
+                      name="shopping_mall"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[construction_year]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[construction_year]"
+                      length="50"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[construction_year]"
+                      name="construction_year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[area (sqm)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[area (sqm)]"
+                      length="50"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[area (sqm)]"
+                      name="area (sqm)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      length="50"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[location]"
+                      name="location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[store_count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[store_count]"
+                      length="50"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[store_count]"
+                      name="store_count"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[shopping_mall]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="shopping_mall" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[construction_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="construction_year" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[area (sqm)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="area (sqm)" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].ExternalColumns[store_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_count" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load StgMall\Load StgMall Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load StgMall Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgMall]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load StgMall\Load StgMall Table.Connections[OleDbConnection]"
+                  connectionManagerID="{35469BEC-039E-4827-B8F0-A04DA05E2997}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Staging1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].Columns[construction_year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="construction_year"
+                      externalMetadataColumnId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[construction_year]"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[construction_year]" />
+                    <inputColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].Columns[area (sqm)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="area (sqm)"
+                      externalMetadataColumnId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[area_sqm]"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[area (sqm)]" />
+                    <inputColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].Columns[store_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_count"
+                      externalMetadataColumnId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[store_count]"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[store_count]" />
+                    <inputColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].Columns[shopping_mall]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="shopping_mall"
+                      externalMetadataColumnId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[shopping_mall]"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[shopping_mall]" />
+                    <inputColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].Columns[location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="location"
+                      externalMetadataColumnId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                      lineageId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output].Columns[location]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[shopping_mall]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="shopping_mall" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[construction_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="construction_year" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[area_sqm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="area_sqm" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input].ExternalColumns[store_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="store_count" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load StgMall\Load StgMall Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load StgMall\Load StgMall Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load StgMall\Load StgMall Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load StgMall\Load StgMall Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load StgMall.Paths[Flat File Source Output]"
+              endId="Package\Load StgMall\Load StgMall Table.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Load StgMall\Extract Mall Data.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load StgSales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0B9D179E-05C4-4F73-9E2B-ED83AED03746}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load StgSales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Load StgSales.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{D90F9527-19FE-405C-A706-3F321C99949A}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{557A5B34-9277-4BC1-94C2-DD5A0BA28E19}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Load StgSales.EventHandlers[OnPreExecute]\Truncate StgSales"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{DE3C89E3-315B-4BC5-8315-3605B088EC38}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Truncate StgSales"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{35469BEC-039E-4827-B8F0-A04DA05E2997}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.StgSales;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load StgSales\Extract Sales Data"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Extract Sales Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">sales_data$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load StgSales\Extract Sales Data.Connections[OleDbConnection]"
+                  connectionManagerID="{37E2D279-504C-4CD0-A915-129D9C7BF1A4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[invoice_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[invoice_no]"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[invoice_no]"
+                      name="invoice_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[customer_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[customer_id]"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[category]"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[invoice date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[invoice date]"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[invoice date]"
+                      name="invoice date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[price]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[shopping_mall]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[shopping_mall]"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[shopping_mall]"
+                      name="shopping_mall"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[invoice_no]"
+                      dataType="wstr"
+                      length="255"
+                      name="invoice_no" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      dataType="r8"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[invoice date]"
+                      dataType="wstr"
+                      length="255"
+                      name="invoice date" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[price]"
+                      dataType="r8"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].ExternalColumns[shopping_mall]"
+                      dataType="wstr"
+                      length="255"
+                      name="shopping_mall" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[invoice_no]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[invoice_no]"
+                      name="invoice_no" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[quantity]"
+                      dataType="r8"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[invoice date]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[invoice date]"
+                      name="invoice date" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[price]"
+                      dataType="r8"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[shopping_mall]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[shopping_mall]"
+                      name="shopping_mall" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load StgSales\Load StgSales Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load StgSales Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgSales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load StgSales\Load StgSales Table.Connections[OleDbConnection]"
+                  connectionManagerID="{35469BEC-039E-4827-B8F0-A04DA05E2997}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Staging1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].Columns[invoice_no]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="invoice_no"
+                      externalMetadataColumnId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[invoice_no]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[invoice_no]" />
+                    <inputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      externalMetadataColumnId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[category]" />
+                    <inputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="r8"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].Columns[invoice date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="invoice date"
+                      externalMetadataColumnId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[invoice_date]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[invoice date]" />
+                    <inputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="r8"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].Columns[shopping_mall]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="shopping_mall"
+                      externalMetadataColumnId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[shopping_mall]"
+                      lineageId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output].Columns[shopping_mall]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[invoice_no]"
+                      dataType="wstr"
+                      length="50"
+                      name="invoice_no" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="100"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[invoice_date]"
+                      dataType="dbTimeStamp"
+                      name="invoice_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input].ExternalColumns[shopping_mall]"
+                      dataType="wstr"
+                      length="100"
+                      name="shopping_mall" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load StgSales\Load StgSales Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load StgSales\Load StgSales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load StgSales\Load StgSales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load StgSales\Load StgSales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load StgSales.Paths[Excel Source Output]"
+              endId="Package\Load StgSales\Load StgSales Table.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Load StgSales\Extract Sales Data.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8CC5A38F-2D21-462C-85A7-1D551AEF73E1}"
+      DTS:From="Package\Load StgSales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load StgCustomer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0F20CD9F-76C9-461B-B125-EF2333710C06}"
+      DTS:From="Package\Load StgCustomer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load StgMall" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Load StgCustomer"
+          TopLeft="56.7129607588329,148.24561240738" />
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Load StgMall"
+          TopLeft="98.2870334048791,260.760231055033" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\Load StgSales"
+          TopLeft="52.083331005027,62.3391806020778" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="126.749997671694,105.005847268744">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.9629630871392,43.2397651386355"
+              Start="0,0"
+              End="13.9629630871392,35.7397651386355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6198825693178" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6198825693178"
+                    Point2="0,21.6198825693178"
+                    Point3="4,21.6198825693178" />
+                  <mssgle:LineSegment
+                    End="9.96296308713923,21.6198825693178" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.96296308713923,21.6198825693178"
+                    Point2="13.9629630871392,21.6198825693178"
+                    Point3="13.9629630871392,25.6198825693178" />
+                  <mssgle:LineSegment
+                    End="13.9629630871392,35.7397651386355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="140.712960758833,190.912279074047">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.2407393127129,69.847951980986"
+              Start="0,0"
+              End="28.2407393127129,62.347951980986">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.923975990493" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.923975990493"
+                    Point2="0,34.923975990493"
+                    Point3="4,34.923975990493" />
+                  <mssgle:LineSegment
+                    End="24.2407393127129,34.923975990493" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.2407393127129,34.923975990493"
+                    Point2="28.2407393127129,34.923975990493"
+                    Point3="28.2407393127129,38.923975990493" />
+                  <mssgle:LineSegment
+                    End="28.2407393127129,62.347951980986" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load StgCustomer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="198.666666666667,42.6666666666667"
+          Id="Package\Load StgCustomer\Load StgCustomer Table"
+          TopLeft="198.999994069338,250.999992519617" />
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\Load StgCustomer\Extract Customer Data"
+          TopLeft="207.999993801117,103.999996900559" />
+        <EdgeLayout
+          Id="Package\Load StgCustomer.Paths[Excel Source Output]"
+          TopLeft="299.833327268561,146.666663567225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104.333328952392"
+              Start="0,0"
+              End="0,96.8333289523921">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.8333289523921" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Load StgCustomer.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\Load StgCustomer.EventHandlers[OnPreExecute]\Truncate StgCustomer"
+          TopLeft="121.999996364117,128.999996155501" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load StgCustomer\Extract Customer Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load StgCustomer\Load StgCustomer Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load StgMall">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Load StgMall\Load StgMall Table"
+          TopLeft="201.999993979931,249.99999254942" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Load StgMall\Extract Mall Data"
+          TopLeft="187.999994397164,119.999996423721" />
+        <EdgeLayout
+          Id="Package\Load StgMall.Paths[Flat File Source Output]"
+          TopLeft="268.66666106383,162.666663090388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.3333329161008,87.3333294590315"
+              Start="0,0"
+              End="19.3333329161008,79.8333294590315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6666647295157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.6666647295157"
+                    Point2="0,43.6666647295157"
+                    Point3="4,43.6666647295157" />
+                  <mssgle:LineSegment
+                    End="15.3333329161008,43.6666647295157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.3333329161008,43.6666647295157"
+                    Point2="19.3333329161008,43.6666647295157"
+                    Point3="19.3333329161008,47.6666647295157" />
+                  <mssgle:LineSegment
+                    End="19.3333329161008,79.8333294590315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Load StgMall.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160,42.6666666666667"
+          Id="Package\Load StgMall.EventHandlers[OnPreExecute]\Truncate StgMall"
+          TopLeft="224.999993294478,128.999996155501" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load StgMall\Load StgMall Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load StgSales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Load StgSales\Extract Sales Data"
+          TopLeft="79.3749964516611,56.10526254187" />
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Load StgSales\Load StgSales Table"
+          TopLeft="64.9999970942737,151.210524655528" />
+        <EdgeLayout
+          Id="Package\Load StgSales.Paths[Excel Source Output]"
+          TopLeft="163.374996451661,98.7719292085367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.04166602405411,52.4385954469911"
+              Start="0,0"
+              End="-9.04166602405411,44.9385954469911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2192977234955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2192977234955"
+                    Point2="0,26.2192977234955"
+                    Point3="-4,26.2192977234955" />
+                  <mssgle:LineSegment
+                    End="-5.04166602405411,26.2192977234955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.04166602405411,26.2192977234955"
+                    Point2="-9.04166602405411,26.2192977234955"
+                    Point3="-9.04166602405411,30.2192977234955" />
+                  <mssgle:LineSegment
+                    End="-9.04166602405411,44.9385954469911" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.4484892620271,31.2192977234955,55.8553125,11.2236328125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Load StgSales.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Load StgSales.EventHandlers[OnPreExecute]\Truncate StgSales"
+          TopLeft="124.99999627471,62.9999981224537" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load StgSales\Extract Sales Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load StgSales\Load StgSales Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

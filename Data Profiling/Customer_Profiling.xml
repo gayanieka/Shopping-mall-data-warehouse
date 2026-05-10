@@ -1,0 +1,499 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{38D69FAF-62BA-4807-A262-D58506114456}" Name="Customer_Profiling.xml">
+      <DtsConnectionManagerID>Customer_Profiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{8E64B37D-AC22-4E2A-8605-F78FBF03026D}" Name="LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{F1A9E3E9-BE52-4443-A42F-DBFA2FC59A88}" Name="LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 1">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 1</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{F03F00B0-6828-408C-8558-8BED9C05FE8B}" Name="LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 2">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G\MSSQLSERVER2.MallSales_Staging 2</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{93853792-E9FF-4FDE-8781-088926B8C278}" Name="Mall_Profiling.xml">
+      <DtsConnectionManagerID>Mall_Profiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{4B0D0308-9D20-4138-8868-1D15D83D54E6}" Name="Sales_profiling.xml">
+      <DtsConnectionManagerID>Sales_profiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{37E2D279-504C-4CD0-A915-129D9C7BF1A4}" Name="Excel Connection Manager">
+      <DtsConnectionManagerID>Excel Connection Manager</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{5A850FF3-CD6B-419E-9D0A-12403BA8FF65}" Name="Excel Connection Manager 1">
+      <DtsConnectionManagerID>Excel Connection Manager 1</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{3D659A2E-8832-435A-9338-1960DC09B48D}" Name="Flat File Connection Manager">
+      <DtsConnectionManagerID>Flat File Connection Manager</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{12AF745A-6CD2-4B53-A998-E4F92BD0CFE3}" Name="LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_DW">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_DW</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{630119F9-35FE-4782-8223-EC87063C2481}" Name="LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Source">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Source</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{35469BEC-039E-4827-B8F0-A04DA05E2997}" Name="LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Staging1">
+      <DtsConnectionManagerID>LAPTOP-DCLU5H0G_MSSQLSERVER2.MallSales_Staging1</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table Schema="dbo" Table="StgCustomer" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table Schema="dbo" Table="StgCustomer" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table Schema="dbo" Table="StgCustomer" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table Schema="dbo" Table="StgCustomer" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table Schema="dbo" Table="StgCustomer" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table Schema="dbo" Table="StgCustomer" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="customer_id" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="gender" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="age" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>119</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="payment_method" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="age" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>18</MinValue>
+        <MaxValue>69</MaxValue>
+        <Mean>43.4258591878234</Mean>
+        <StdDev>14.9893243711573</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="customer_id" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>7</MinLength>
+        <MaxLength>7</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>99457</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="gender" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>6</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>59482</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>39975</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="payment_method" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>11</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>20079</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>44447</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>34931</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <KeyColumns>
+          <Column Name="customer_id" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="customer_id" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>99457</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="gender" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>2</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Male</Value>
+            <Count>39975</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Female</Value>
+            <Count>59482</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="age" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>52</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>23</Value>
+            <Count>1895</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>46</Value>
+            <Count>1910</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>69</Value>
+            <Count>1897</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>29</Value>
+            <Count>1881</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>52</Value>
+            <Count>1943</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>66</Value>
+            <Count>1875</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>32</Value>
+            <Count>1891</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>26</Value>
+            <Count>1894</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>35</Value>
+            <Count>1840</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>63</Value>
+            <Count>1885</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>43</Value>
+            <Count>1999</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>55</Value>
+            <Count>1842</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>49</Value>
+            <Count>1882</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>67</Value>
+            <Count>1899</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>21</Value>
+            <Count>1945</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>27</Value>
+            <Count>1948</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>58</Value>
+            <Count>1871</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>64</Value>
+            <Count>2002</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>38</Value>
+            <Count>1953</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>44</Value>
+            <Count>1901</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>50</Value>
+            <Count>1871</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>24</Value>
+            <Count>1977</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>47</Value>
+            <Count>1877</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>18</Value>
+            <Count>1843</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>30</Value>
+            <Count>1978</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>61</Value>
+            <Count>1941</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>41</Value>
+            <Count>1886</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>65</Value>
+            <Count>1854</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>19</Value>
+            <Count>1930</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>25</Value>
+            <Count>1859</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>36</Value>
+            <Count>1952</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>62</Value>
+            <Count>1909</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>42</Value>
+            <Count>1890</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>56</Value>
+            <Count>1914</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>22</Value>
+            <Count>2050</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>59</Value>
+            <Count>1869</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>33</Value>
+            <Count>1908</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>39</Value>
+            <Count>1946</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>53</Value>
+            <Count>1902</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>45</Value>
+            <Count>1875</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>48</Value>
+            <Count>1953</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>31</Value>
+            <Count>1862</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>60</Value>
+            <Count>1871</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>40</Value>
+            <Count>1956</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>34</Value>
+            <Count>1881</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>54</Value>
+            <Count>1829</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>20</Value>
+            <Count>1844</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>68</Value>
+            <Count>1885</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>28</Value>
+            <Count>1951</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>57</Value>
+            <Count>1877</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>37</Value>
+            <Count>2056</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>51</Value>
+            <Count>1989</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="payment_method" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>3</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Debit Card</Value>
+            <Count>20079</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cash</Value>
+            <Count>44447</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Credit Card</Value>
+            <Count>34931</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="customer_id" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>C\d\d\d\d\d\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="gender" SqlDbType="NVarChar" MaxLength="20" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>FEMALE</RegexText>
+            <Frequency>59</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>MALE</RegexText>
+            <Frequency>41</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{8E64B37D-AC22-4E2A-8605-F78FBF03026D}</DataSourceID>
+        <Table DataSource="LAPTOP-DCLU5H0G\MSSQLSERVER2" Database="MallSales_Staging" Schema="dbo" Table="StgCustomer" RowCount="99457" />
+        <Column Name="payment_method" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>CREDIT CARD</RegexText>
+            <Frequency>35</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>CASH</RegexText>
+            <Frequency>44</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>DEBIT CARD</RegexText>
+            <Frequency>21</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>
